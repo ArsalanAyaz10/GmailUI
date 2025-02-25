@@ -41,8 +41,67 @@ class BuildUI extends StatelessWidget {
       "message": "I've made some changes to the report. Please review it.",
       "date": "1 Feb",
     },
+    {
+      "name": "Bob Johnson",
+      "subject": "Lunch Plans",
+      "message": "Are we still on for lunch today?",
+      "date": "31 Jan",
+    },
+    {
+      "name": "Charlie Brown",
+      "subject": "Code Review",
+      "message": "Can you review my latest PR?",
+      "date": "30 Jan",
+    },
+    {
+      "name": "David Wilson",
+      "subject": "Team Outing",
+      "message": "Don't forget about the team outing this Friday.",
+      "date": "29 Jan",
+    },
+    {
+      "name": "Eve Adams",
+      "subject": "New Project",
+      "message": "Let's discuss the new project requirements.",
+      "date": "28 Jan",
+    },
+    {
+      "name": "Frank White",
+      "subject": "Budget Report",
+      "message": "The budget report is ready for your review.",
+      "date": "27 Jan",
+    },
+    {
+      "name": "Grace Lee",
+      "subject": "Client Feedback",
+      "message": "We received some feedback from the client.",
+      "date": "26 Jan",
+    },
+    {
+      "name": "Hannah King",
+      "subject": "Holiday Plans",
+      "message": "What are your plans for the holidays?",
+      "date": "25 Jan",
+    },
+    {
+      "name": "Ian Scott",
+      "subject": "Server Maintenance",
+      "message": "Scheduled server maintenance this weekend.",
+      "date": "24 Jan",
+    },
+    {
+      "name": "Jackie Chan",
+      "subject": "Training Session",
+      "message": "Reminder about the training session tomorrow.",
+      "date": "23 Jan",
+    },
+    {
+      "name": "Karen Green",
+      "subject": "Invoice",
+      "message": "Please find the attached invoice for last month.",
+      "date": "22 Jan",
+    },
   ];
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
