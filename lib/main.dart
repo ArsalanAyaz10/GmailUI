@@ -1,27 +1,65 @@
 import 'package:flutter/material.dart';
-
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'emailTitle.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: BuildUI()),
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.mail),
+              backgroundColor: Colors.redAccent,
+              label: "Mail",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.photo_camera_front),
+              label: "Meet",
+            ),
+          ],
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.redAccent,
+          elevation: 2,
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Colors.white,
+          autofocus: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          label: Row(
+            children: [
+              Icon(MdiIcons.pencil, color: Colors.red, size: 25),
+              SizedBox(width: 15),
+              Text("Compose", style: TextStyle(color: Colors.red)),
+            ],
+          ),
+          onPressed: () {},
+        ),
+        body: BuildUI(),
+      ),
     );
   }
 }
 
-class BuildUI extends StatelessWidget {
-  const BuildUI({super.key});
+//build UI
 
+class BuildUI extends StatelessWidget {
+  BuildUI({super.key});
+
+  final textStyle = TextStyle(color: Colors.black, fontWeight: FontWeight.w500);
   final List<Map<String, String>> emails = const [
     {
       "name": "Arsalan Ayaz",
@@ -111,25 +149,32 @@ class BuildUI extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.only(left: 5, right: 5, bottom: 5),
               child: SearchBar(
-                elevation: WidgetStatePropertyAll(3),
+                elevation: WidgetStatePropertyAll(1),
+                backgroundColor: WidgetStatePropertyAll<Color>(
+                  Color.fromARGB(255, 255, 255, 255),
+                ),
+                shape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                ),
+                leading: Icon(Icons.menu),
                 hintText: "Search in emails",
                 hintStyle: WidgetStatePropertyAll<TextStyle>(
-                  TextStyle(color: Colors.white),
+                  TextStyle(color: Colors.black),
                 ),
+                autoFocus: true,
               ),
             ),
             SizedBox(height: 8),
-            const Text("Inbox", style: TextStyle(fontSize: 15)),
+            Text("PRIMARY", style: textStyle),
             const SizedBox(height: 20),
             Expanded(
               child: ListView.separated(
                 itemCount: emails.length,
-                separatorBuilder: (context, index) => const Divider(
-                      color: Color.fromARGB(255, 15, 20, 23),
-                      height: 20,
-                    ),
+                separatorBuilder:
+                    (context, index) =>
+                        const Divider(height: 20, color: Colors.transparent),
                 itemBuilder: (context, index) {
                   final email = emails[index];
                   return EmailTile(

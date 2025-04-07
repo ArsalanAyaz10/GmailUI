@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +17,11 @@ class EmailTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.bold,
+    );
+
     return Row(
       children: [
         const CircleAvatar(
@@ -30,17 +34,11 @@ class EmailTile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                name,
-                style: const TextStyle(fontSize: 15, color: Colors.white),
-              ),
-              Text(
-                subject,
-                style: const TextStyle(fontSize: 14, color: Colors.white70),
-              ),
+              Text(name, style: textStyle),
+              Text(subject, style: textStyle),
               Text(
                 message,
-                style: const TextStyle(fontSize: 13, color: Colors.white54),
+                style: TextStyle(color: Colors.grey),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
@@ -50,9 +48,13 @@ class EmailTile extends StatelessWidget {
         const Spacer(),
         Column(
           children: [
-            Text(date, style: const TextStyle(color: Colors.white54)),
+            Text(date, style: textStyle),
             const SizedBox(height: 5),
-            const Icon(Icons.star_outline, size: 22, color: Colors.white54),
+            const Icon(
+              Icons.star_outline,
+              size: 22,
+              color: Color.fromARGB(137, 18, 6, 6),
+            ),
           ],
         ),
       ],
